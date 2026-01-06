@@ -18,7 +18,11 @@ public class FlickeringLightTrigger : MonoBehaviour
     
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player")) _canChangeIntensity = false;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            light.intensity = maxIntensity;
+            _canChangeIntensity = false;
+        }
     }
 
     private void Update()
