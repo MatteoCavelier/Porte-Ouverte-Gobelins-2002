@@ -25,7 +25,8 @@ public class Player : MonoBehaviour
     {
         if (!GameManager.Instance.playerCanMove) return;
 
-        _yRotation += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        float mouseX = Mouse.current.delta.ReadValue().x;
+        _yRotation += mouseX * sensitivity * Time.deltaTime;
         transform.rotation = Quaternion.Euler(0f, _yRotation, 0f);
 
         Vector3 direction = Vector3.zero;
@@ -39,9 +40,10 @@ public class Player : MonoBehaviour
 
         _controller.Move(direction.normalized * (velocity * Time.deltaTime));
 
-        if (_doPlayFootstep)
+        if (_doPlayFootstep && !_footstepPlayed)
             StartCoroutine(PlayFootstep());
     }
+
 
     IEnumerator PlayFootstep()
     {

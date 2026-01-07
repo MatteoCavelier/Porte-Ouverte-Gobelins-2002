@@ -17,4 +17,5 @@ public class FlickeringLight : MonoBehaviour
         light.intensity = Random.Range(minIntensity, maxIntensity);
         _currentTimer = 0f;
     }
+
 }

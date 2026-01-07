@@ -7,6 +7,8 @@ public class DialogTrigger : MonoBehaviour
     [SerializeField] private GameObject dialog;
     [SerializeField] private int waitBeforeCloseDialog = 5;
     
+    private Coroutine _closeCoroutine;
+    
     private void OnTriggerEnter(Collider trigger)
     {
         if (trigger.gameObject.CompareTag("Player"))
@@ -14,14 +16,17 @@ public class DialogTrigger : MonoBehaviour
             dialog.SetActive(true);
         }
     }
-    
+
     private void OnTriggerExit(Collider trigger)
     {
-        if (trigger.gameObject.CompareTag("Player"))
-        {
-            StartCoroutine(CloseDialog());
-        }
+        if (!trigger.CompareTag("Player")) return;
+
+        if (_closeCoroutine != null)
+            StopCoroutine(_closeCoroutine);
+
+        _closeCoroutine = StartCoroutine(CloseDialog());
     }
+
     
     private IEnumerator CloseDialog()
     {

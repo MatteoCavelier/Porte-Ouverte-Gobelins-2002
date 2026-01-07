@@ -13,6 +13,7 @@ public class DoorInteraction : MonoBehaviour
     
     private bool _isDoorOpen;
     private bool _isInTrigger;
+    private Vector3 _stupidPos = new Vector3(1000,1000,1000);
     
     private void OnTriggerEnter(Collider trigger)
     {
@@ -34,24 +35,20 @@ public class DoorInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (_isInTrigger)
-        {
-            if (Keyboard.current.eKey.isPressed)
-            {
-                keyToPress.SetActive(false);
-                if (!_isDoorOpen)
-                {
-                    OpenDoor();
-                }
-            }
-        }
-        
+        if (!_isInTrigger) return;
+
         keyToPress.transform.LookAt(cam.transform);
+
+        if (Keyboard.current.eKey.isPressed && !_isDoorOpen)
+        {
+            keyToPress.SetActive(false);
+            OpenDoor();
+        }
     }
 
     private void OpenDoor()
     {
-        keyToPress.transform.position = new Vector3(1000,1000,1000);
+        keyToPress.transform.position = _stupidPos;
         float targetY = isLeftDoor
             ? door.transform.eulerAngles.y - 90f
             : door.transform.eulerAngles.y + 90f;

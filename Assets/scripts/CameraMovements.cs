@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraMovements : MonoBehaviour
 {
@@ -6,9 +7,10 @@ public class CameraMovements : MonoBehaviour
 
     private float _xRotation;
 
-    void Update()
+    void LateUpdate()
     {
-        _xRotation -= Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+        float mouseY = Mouse.current.delta.ReadValue().y;
+        _xRotation -= mouseY * sensitivity * Time.deltaTime;
         _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
 
         transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);

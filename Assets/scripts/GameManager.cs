@@ -26,16 +26,14 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.escapeKey.isPressed)
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (_timeIsPaused)
-                    ResumeGame();
-                else
-                    PauseGame();
-            }
+            if (_timeIsPaused)
+                ResumeGame();
+            else
+                PauseGame();
         }
+
     }
 
     private void PauseGame()
