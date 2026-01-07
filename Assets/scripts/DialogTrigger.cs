@@ -25,6 +25,7 @@ public class DialogTrigger : MonoBehaviour
             StopCoroutine(_closeCoroutine);
 
         _closeCoroutine = StartCoroutine(CloseDialog());
+        gameObject.SetActive(false);
     }
 
     
