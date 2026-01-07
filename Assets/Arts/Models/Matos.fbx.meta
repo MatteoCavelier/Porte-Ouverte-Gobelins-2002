@@ -1,11 +1,16 @@
 fileFormatVersion: 2
-guid: 28dd9bb9b010f8b4b95e1452785d6439
+guid: 3ee5148acab27ea408147d9be76b3016
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Matos
+    second: {fileID: 2100000, guid: 24e1d3ef52ffd6a4f9166ecc93b3e1b6, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
