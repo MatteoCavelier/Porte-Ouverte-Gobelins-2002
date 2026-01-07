@@ -2,14 +2,14 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DoorInteraction : MonoBehaviour
+public class DoobleDoorInteraction : MonoBehaviour
 {
     
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject keyToPress;
-    [SerializeField] private GameObject door;
-    [SerializeField] private float openDoorTime = 2f;
-    [SerializeField] private bool isLeftDoor;
+    [SerializeField] private GameObject door1;
+    [SerializeField] private GameObject door2;
+    [SerializeField] private float openDoorTime = 1f;
     
     private bool _isDoorOpen;
     private bool _isInTrigger;
@@ -52,17 +52,8 @@ public class DoorInteraction : MonoBehaviour
     private void OpenDoor()
     {
         keyToPress.transform.position = new Vector3(1000,1000,1000);
-        float targetY = isLeftDoor
-            ? door.transform.eulerAngles.y - 90f
-            : door.transform.eulerAngles.y + 90f;
-
-        door.transform
-            .DORotate(
-                new Vector3(0, targetY, 0),
-                openDoorTime
-            )
-            .SetEase(Ease.InOutCubic);
-
+        door1.transform.DORotate(new Vector3(0,door1.transform.rotation.y - 90,0), openDoorTime, RotateMode.WorldAxisAdd).SetEase(Ease.InOutCubic);
+        door2.transform.DORotate(new Vector3(0,door2.transform.rotation.y + 90,0), openDoorTime, RotateMode.WorldAxisAdd).SetEase(Ease.InOutCubic);
         _isDoorOpen = true;
     }
 }
