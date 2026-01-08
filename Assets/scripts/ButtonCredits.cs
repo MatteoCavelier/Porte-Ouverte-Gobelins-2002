@@ -1,10 +1,12 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ButtonCredits : MonoBehaviour
 {
+    
+    [SerializeField] private GameObject creditsMenu;
+    
     public void NavigateToCredits()
     {
-        SceneManager.LoadScene("Credits");
+        creditsMenu.SetActive(true);
     }
 }

@@ -1,16 +1,19 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private Button buttonResume;
+    [SerializeField] private AudioSource musicLevel;
 
     public bool playerCanMove = true;
     public static GameManager Instance;
     private bool _timeIsPaused;
     
-    void Start()
+    void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -22,6 +25,12 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+    
+    void Start()
+    {
+        buttonResume.onClick.AddListener(ResumeGame);
+        musicLevel.Play();
     }
 
     private void Update()
