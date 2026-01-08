@@ -25,7 +25,6 @@ public class DialogTrigger : MonoBehaviour
             StopCoroutine(_closeCoroutine);
 
         _closeCoroutine = StartCoroutine(CloseDialog());
-        gameObject.SetActive(false);
     }
 
     
@@ -33,5 +32,6 @@ public class DialogTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(waitBeforeCloseDialog);
         dialog.SetActive(false);
+        gameObject.SetActive(false);
     }
 }
