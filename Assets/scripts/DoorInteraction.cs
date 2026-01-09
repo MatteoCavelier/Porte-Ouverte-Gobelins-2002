@@ -37,8 +37,6 @@ public class DoorInteraction : MonoBehaviour
     {
         if (!_isInTrigger) return;
 
-        keyToPress.transform.LookAt(cam.transform);
-
         if (Keyboard.current.eKey.isPressed && !_isDoorOpen)
         {
             keyToPress.SetActive(false);
