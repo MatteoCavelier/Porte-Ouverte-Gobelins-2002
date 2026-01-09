@@ -8,22 +8,22 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: UniV_Grid_2K.002_BaseColor
-    second: {fileID: 2800000, guid: 3f90585b66a7c6149b284b757388cdf3, type: 3}
+    second: {fileID: 2800000, guid: 39dd23fee079c5149b18834ca3ffa031, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: UniV_Grid_2K.002_Metallic
-    second: {fileID: 2800000, guid: ebdbf620dfe93cf4696e4d5a4378bea2, type: 3}
+    second: {fileID: 2800000, guid: 742e3574beef3e644997b1e86269e715, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: UniV_Grid_2K.002_Normal
-    second: {fileID: 2800000, guid: 96f87c59b16b96d419a062b4ce03ad58, type: 3}
+    second: {fileID: 2800000, guid: 2c508051c00087d448c79d2450068df6, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: UniV_Grid_2K.002_Roughness
-    second: {fileID: 2800000, guid: 2245ab5d974328144bbe8357dbd48bd7, type: 3}
+    second: {fileID: 2800000, guid: e08c24790690af34f8f3f96841959ca5, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
